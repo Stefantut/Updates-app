@@ -1,0 +1,82 @@
+/* mixins.scss */
+
+/*  Flexbox  */
+
+@mixin flex {
+  display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  display: -ms-flexbox; /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+  display: flex; /* NEW, Spec - Firefox, Chrome, Opera */
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+// Center items horizontally using Flex
+@mixin flex-center {
+  @include flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+// Center items vertically using Flex
+@mixin flex-v-center {
+  @include flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+/* ----------------------------- */
+
+// Transitions
+@mixin default-transition {
+  -webkit-transition: 0.25s ease;
+  -o-transition: 0.25s ease;
+  transition: 0.25s ease;
+}
+
+/* ----------------------------- */
+
+// Background sizes (cover)
+@mixin background-cover {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+// Background sizes (contain)
+@mixin background-contain {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* ----------------------------- */
+
+// Absolute position - not massively required, but speeds things up a tad.
+@mixin absolute {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* ----------------------------- */
+
+// Border Radius
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+/* ----------------------------- */
+
+// Shadow
+
+@mixin shadow {
+  -webkit-box-shadow: 0px 0px 81px -15px rgba(0, 0, 0, 0.31);
+  -moz-box-shadow: 0px 0px 81px -15px rgba(0, 0, 0, 0.31);
+  box-shadow: 0px 0px 81px -15px rgba(0, 0, 0, 0.31);
+}

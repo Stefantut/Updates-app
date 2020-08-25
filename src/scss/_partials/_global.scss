@@ -1,0 +1,40 @@
+/* CSS needed site-wide */
+* {
+  margin: 0;
+  padding: 0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  overflow-y: scroll;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 62.5%; //1rem = 10px
+}
+
+body {
+  height: 100%;
+  font-family: $primary-font;
+}
+
+textarea,
+input,
+button,
+a {
+  outline: none;
+}
+
+button,
+input,
+textarea {
+  outline: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+a {
+  text-decoration: none;
+}
