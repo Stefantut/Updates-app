@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Used: Create React App, React router, node-sass
 
 ## Available Scripts
 
