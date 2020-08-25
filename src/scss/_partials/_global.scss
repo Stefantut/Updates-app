@@ -24,7 +24,7 @@ textarea,
 input,
 button,
 a {
-  outline: none;
+  outline: thin;
 }
 
 button,
@@ -37,4 +37,8 @@ textarea {
 
 a {
   text-decoration: none;
+}
+
+li {
+  list-style-type: none;
 }
