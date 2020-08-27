@@ -10,10 +10,13 @@ import UpdatesByTags from "../routes/UpdatesByTags";
 import App from "../routes/App";
 import NotFound from "../routes/NotFound";
 
+import Header from "../components/Header";
+
 const Router = () => {
   return (
     <BrowserRouter>
       <Provider>
+        <Header />
         <Switch>
           <Route exact path="/" component={Welcome} />
           <Route exact path="/login" component={Login} />
