@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="677" height="378" viewBox="0 0 677 378">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 400px;
+        text-anchor: middle;
+        font-family: "Agency FB";
+        font-weight: 700;
+      }
+
+      .cls-2 {
+        fill: #dd2f45;
+      }
+    </style>
+  </defs>
+  <text id="Logo." class="cls-1" x="336.907" y="305.87">Logo<tspan class="cls-2">.</tspan></text>
+</svg>
