@@ -1,4 +1,5 @@
 /* CSS needed site-wide */
+
 * {
   margin: 0;
   padding: 0;
@@ -17,7 +18,7 @@ html {
 
 body {
   height: 100%;
-  font-family: $primary-font;
+  font-family: var(--primary-font);
 }
 
 textarea,
