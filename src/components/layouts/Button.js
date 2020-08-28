@@ -6,16 +6,16 @@ function Button({ image, text, path }) {
     <div className="button-wrap">
       {path ? (
         <Link to={path}>
-          <div className="button-content">
+          <button className="button-content">
             <p>{text}</p>
             {image}
-          </div>
+          </button>
         </Link>
       ) : (
-        <div className="button-content">
+        <button className="button-content">
           <p>{text}</p>
           {image}
-        </div>
+        </button>
       )}
     </div>
   );

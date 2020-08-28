@@ -22,27 +22,29 @@
 .button-wrap {
   a {
     text-decoration: none;
-    max-height: var(--spacer-xxlarge);
   }
   .button-content {
     font-size: var(--spacer-medium);
     border: 1px solid black;
     text-decoration: none;
+    max-height: var(--spacer-xxlarge);
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
     flex-direction: row-reverse;
+    background: transparent;
     svg {
       padding: var(--spacer-xsmall);
       width: 100%;
       max-width: 25px;
       transition: 0.2s ease-in;
+      height: inherit;
     }
     p {
       font-weight: var(--bold-weight);
       color: var(--secondary-color);
       transition: 0.2s ease-in;
-      padding: var(--spacer-small);
+      padding-right: var(--spacer-small);
     }
     &:hover {
       cursor: pointer;
