@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
 
 import { Context } from "../utils/Context";
-import { ReactComponent as Logo } from "../images/logo.svg";
+import Logo from "../components/Logo";
 
 const Header = () => {
   const { isLogged, logOut } = useContext(Context);
 
   return (
     <header className="content">
-      <Logo className="logo" />
+      <Logo />
       {isLogged && (
         <div className="welcome-msg">
           Welcome Username,

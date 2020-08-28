@@ -43,3 +43,9 @@ a {
 li {
   list-style-type: none;
 }
+
+.logo {
+  max-width: 60px;
+  height: 100%;
+  user-select: none;
+}
