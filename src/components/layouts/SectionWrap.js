@@ -2,10 +2,10 @@ import React from "react";
 
 const SectionWrap = ({ leftSection, rightSection }) => {
   return (
-    <div className="section-wrap">
+    <main className="section-wrap">
       {leftSection}
       {rightSection}
-    </div>
+    </main>
   );
 };
 
