@@ -17,3 +17,40 @@
     }
   }
 }
+
+// Button
+.button-wrap {
+  a {
+    text-decoration: none;
+  }
+  .button-content {
+    font-size: var(--spacer-medium);
+    border: 1px solid black;
+    text-decoration: none;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    flex-direction: row-reverse;
+    svg {
+      padding: var(--spacer-xsmall);
+      width: 100%;
+      max-width: 25px;
+      transition: 0.2s ease-in;
+    }
+    p {
+      font-weight: var(--bold-weight);
+      color: var(--secondary-color);
+      transition: 0.2s ease-in;
+      padding: var(--spacer-small);
+    }
+    &:hover {
+      cursor: pointer;
+      p {
+        color: var(--primary-color);
+      }
+      svg {
+        transform: translateX(3px);
+      }
+    }
+  }
+}
