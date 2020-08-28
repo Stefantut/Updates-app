@@ -1,14 +1,14 @@
 import React from "react";
 
 import SectionWrap from "../components/layouts/SectionWrap";
-import BigLogo from "../components/BigLogo";
+import BigTitle from "../components/BigTitle";
 
 function Welcome() {
   return (
     <SectionWrap
       className="welcome content"
-      leftSection={<BigLogo />}
-      rightSection={<BigLogo />}
+      leftSection={<BigTitle />}
+      rightSection={<BigTitle />}
     ></SectionWrap>
   );
 }

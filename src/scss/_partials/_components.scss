@@ -1,9 +1,18 @@
 // Big Logo
 .big-logo {
   display: flex;
-  align-items: center;
   justify-content: center;
+  flex-direction: column;
+  align-items: flex-end;
   height: 100%;
   width: 50%;
-  color: red;
+  h1 {
+    color: var(--secondary-color);
+    font-size: var(--font-xxxlarge);
+    user-select: none;
+    &:after {
+      content: ".";
+      color: var(--primary-color);
+    }
+  }
 }
