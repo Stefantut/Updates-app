@@ -22,6 +22,7 @@
 .button-wrap {
   a {
     text-decoration: none;
+    max-height: var(--spacer-xxlarge);
   }
   .button-content {
     font-size: var(--spacer-medium);
@@ -50,6 +51,7 @@
       }
       svg {
         transform: translateX(3px);
+        fill: var(--primary-color);
       }
     }
   }
