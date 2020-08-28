@@ -8,7 +8,10 @@ const WelcomeSection = () => {
   return (
     <div className="welcome-section">
       <Title title={"Welcome"} />
-      <Button path={"/login"} image={<Forward />} text={"Login"} />
+      <div className="wrap-content">
+        <Button path={"/login"} image={<Forward />} text={"Login"} />
+        <Button path={"/register"} image={<Forward />} text={"Register"} />
+      </div>
     </div>
   );
 };

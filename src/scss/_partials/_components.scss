@@ -20,6 +20,10 @@
 
 // Button
 .button-wrap {
+  margin-right: var(--spacer-large);
+  &:last-child {
+    margin-right: 0;
+  }
   a {
     text-decoration: none;
   }
