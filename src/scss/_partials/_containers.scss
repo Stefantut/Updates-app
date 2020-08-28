@@ -1,9 +1,9 @@
 // header
 header {
   display: flex;
-  margin: 0 auto;
   justify-content: space-between;
-  margin: var(--spacer-medium) 0;
+  align-items: center;
+  height: var(--header-height);
   .welcome-msg {
     display: flex;
     user-select: none;
@@ -19,6 +19,7 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: var(--footer-height);
 }
 
 // PoweredBy
