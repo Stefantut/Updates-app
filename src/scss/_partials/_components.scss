@@ -62,3 +62,11 @@
     }
   }
 }
+
+// TextLine
+.text-line {
+  font-size: var(--spacer-large);
+  margin: var(--spacer-medium);
+  user-select: none;
+  margin-top: var(--spacer-xxxlarge);
+}
