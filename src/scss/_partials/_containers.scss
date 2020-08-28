@@ -33,3 +33,14 @@ footer {
     max-width: 40px;
   }
 }
+
+// Sections
+
+// Welcome Section
+.welcome-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 50%;
+}
