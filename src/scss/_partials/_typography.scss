@@ -41,8 +41,10 @@ ul {
   list-style-type: none;
 }
 
-.content {
-  width: 100%;
-  max-width: var(--content-width);
-  padding: 0 var(--spacer-small);
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
 }
