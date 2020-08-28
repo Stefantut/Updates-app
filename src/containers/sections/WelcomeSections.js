@@ -7,7 +7,7 @@ import TextLine from "../../components/layouts/TextLine";
 
 const WelcomeSection = () => {
   return (
-    <div className="welcome-section">
+    <div className="welcome-section fifty-section">
       <Title title={"Welcome"} />
       <div className="wrap-content">
         <Button path={"/login"} image={<Forward />} text={"Login"} />

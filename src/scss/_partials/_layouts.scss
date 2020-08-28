@@ -18,3 +18,13 @@
   user-select: none;
   margin-bottom: 15px;
 }
+
+// Sections
+.fifty-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  width: 50%;
+}
