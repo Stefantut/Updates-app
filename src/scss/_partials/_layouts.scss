@@ -8,3 +8,11 @@
   margin: 0 auto;
   padding: 0 var(--spacer-small);
 }
+
+// Title
+.title {
+  color: var(--primary-color);
+  font-size: var(--font-xxlarge);
+  display: flex;
+  justify-content: center;
+}
