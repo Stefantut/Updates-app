@@ -10,7 +10,8 @@ import UpdatesByTags from "../routes/UpdatesByTags";
 import App from "../routes/App";
 import NotFound from "../routes/NotFound";
 
-import Header from "../components/Header";
+import Header from "../containers/Header";
+import Footer from "../containers/Footer";
 
 const Router = () => {
   return (
@@ -26,6 +27,7 @@ const Router = () => {
           <Route path="/app/:username" component={App} />
           <Route component={NotFound} />
         </Switch>
+        <Footer />
       </Provider>
     </BrowserRouter>
   );
