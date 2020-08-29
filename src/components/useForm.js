@@ -27,11 +27,9 @@ const useForm = (callback, validate) => {
     event.preventDefault();
     const validationErrors = validate(values);
 
-    if (validationErrors.title || validationErrors.email) {
-      setErrors(validationErrors);
-    } else {
-      callback();
-    }
+    validationErrors.title || validationErrors.password
+      ? setErrors(validationErrors)
+      : callback();
   };
 
   return {

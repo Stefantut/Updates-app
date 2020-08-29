@@ -14,13 +14,10 @@ const LoginForm = () => {
     submit,
     validate
   );
+
   function submit() {
     const matchUser = users.find((user) => user.email === values.email);
-    if (matchUser) {
-      logIn(matchUser.name);
-    } else {
-      console.log("not logged in");
-    }
+    logIn(matchUser.name);
   }
 
   return (
@@ -44,7 +41,7 @@ const LoginForm = () => {
           <label>Password</label>
           <div>
             <input
-              className={`${errors.password && "inputError"}`}
+              className={`${errors.email && "inputError"}`}
               name="password"
               type="password"
               autoComplete="password"
