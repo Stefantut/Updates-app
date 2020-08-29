@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Context } from "../utils/Context";
+
+import SectionWrap from "../components/layouts/SectionWrap";
+import BigTitle from "../components/BigTitle";
 
 const UpdatesByDate = () => {
-  return <div className="UpdatesByDate">Updates By Date</div>;
+  const { isLogged } = useContext(Context);
+  return (
+    <SectionWrap
+      className="UpdatesByDate"
+      leftSection={isLogged && <BigTitle />}
+      rightSection={<BigTitle />}
+    ></SectionWrap>
+  );
 };
 
 export default UpdatesByDate;
