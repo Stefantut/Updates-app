@@ -25,7 +25,7 @@ const LoginForm = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit} noValidate>
+      <form className="form" onSubmit={handleSubmit} noValidate>
         <div className="wrap">
           <label>Email</label>
           <div>
@@ -44,7 +44,7 @@ const LoginForm = () => {
           <label>Password</label>
           <div>
             <input
-              className={`${errors.email && "inputError"}`}
+              className={`${errors.password && "inputError"}`}
               name="password"
               type="password"
               autoComplete="password"
@@ -54,7 +54,7 @@ const LoginForm = () => {
             {errors.password && <p className="error">{errors.password}</p>}
           </div>
         </div>
-        <div className="wrap">
+        <div className="wrap-buttons">
           <Button text={"Login"} type="submit" />
           <Button text={"Register"} path={"/register"} />
         </div>

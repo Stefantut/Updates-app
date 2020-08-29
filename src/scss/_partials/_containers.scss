@@ -42,3 +42,45 @@ footer {
     display: flex;
   }
 }
+
+// Forms
+
+//Login Form
+.form {
+  .wrap {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .wrap-buttons {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  label {
+    font-weight: var(--bold-weight);
+    margin-right: 10px;
+  }
+  .error {
+    color: var(--primary-color);
+    font-weight: var(--bold-weight);
+    font-size: var(--font-medium);
+    user-select: none;
+    margin-top: 3px;
+  }
+  input {
+    border: none;
+    padding-bottom: 1px;
+    width: 100%;
+    border-bottom: 1px solid var(--secondary-color);
+    &:focus {
+      outline: thin;
+    }
+
+    &.inputError {
+      border-bottom: 1px solid var(--primary-color);
+    }
+  }
+}
