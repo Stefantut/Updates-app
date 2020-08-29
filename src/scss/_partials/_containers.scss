@@ -66,13 +66,13 @@ footer {
   .error {
     color: var(--primary-color);
     font-weight: var(--bold-weight);
-    font-size: var(--font-medium);
+    font-size: var(--font-small);
     user-select: none;
     margin-top: 3px;
   }
   input {
     border: none;
-    padding-bottom: 1px;
+    padding-bottom: 3px;
     width: 100%;
     border-bottom: 1px solid var(--secondary-color);
     &:focus {
