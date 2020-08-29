@@ -3,6 +3,7 @@ import { Context } from "../utils/Context";
 
 import SectionWrap from "../components/layouts/SectionWrap";
 import BigTitle from "../components/BigTitle";
+import NotLogged from "../components/NotLogged";
 
 const App = () => {
   const { isLogged } = useContext(Context);
@@ -10,7 +11,7 @@ const App = () => {
     <SectionWrap
       className="App"
       leftSection={<BigTitle />}
-      rightSection={isLogged && <BigTitle />}
+      rightSection={isLogged ? <BigTitle /> : <NotLogged />}
     ></SectionWrap>
   );
 };
