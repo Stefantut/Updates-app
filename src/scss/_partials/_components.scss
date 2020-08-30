@@ -1,19 +1,24 @@
 // Big Logo
-.big-logo {
+.big-title {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
   height: 100%;
   width: 50%;
   padding: var(--spacer-medium);
-  h1 {
-    color: var(--secondary-color);
-    font-size: var(--font-xxxlarge);
-    user-select: none;
-    &:after {
-      content: ".";
-      color: var(--primary-color);
+  &-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    h1 {
+      color: var(--secondary-color);
+      font-size: var(--font-xxxlarge);
+      user-select: none;
+      &:after {
+        content: ".";
+        color: var(--primary-color);
+      }
     }
   }
 }

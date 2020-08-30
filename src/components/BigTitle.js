@@ -2,13 +2,15 @@ import React from "react";
 
 import PoweredBy from "../containers/PoweredBy";
 
-const BigLogo = () => {
+const BigTitle = () => {
   return (
-    <div className="big-logo">
-      <h1>Lorem Ipsum</h1>
-      <PoweredBy />
+    <div className="big-title">
+      <div className="big-title-content">
+        <h1>Lorem Ipsum</h1>
+        <PoweredBy />
+      </div>
     </div>
   );
 };
 
-export default BigLogo;
+export default BigTitle;
