@@ -5,7 +5,7 @@ import Button from "./layouts/Button";
 
 const NotLogged = () => {
   return (
-    <div className="fifty-section">
+    <div className="not-logged half-width">
       <Title title={"You are not logged in"} />
       <Button path={"/login"} text={"Log in now"} />
     </div>

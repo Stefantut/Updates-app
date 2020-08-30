@@ -5,7 +5,7 @@ import LoginForm from "../../containers/forms/LoginForm";
 
 const LoginSection = () => {
   return (
-    <div className="login-section fifty-section">
+    <div className="login-section half-width">
       <Title title={"Login"} />
       <LoginForm />
     </div>

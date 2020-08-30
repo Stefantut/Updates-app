@@ -9,7 +9,7 @@ import TextLine from "../../components/layouts/TextLine";
 const WelcomeSection = () => {
   const { isLogged } = useContext(Context);
   return (
-    <div className="welcome-section fifty-section">
+    <div className="welcome-section half-width">
       <Title title={"Welcome"} />
       {!isLogged && (
         <div className="wrap-content">
