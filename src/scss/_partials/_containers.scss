@@ -11,6 +11,7 @@ header {
     .welcome-msg {
       display: flex;
       user-select: none;
+      text-transform: capitalize;
     }
     .button {
       @include default-btn;
@@ -35,9 +36,9 @@ header {
             content: "";
           }
         }
-      }
-      &:hover {
-        color: var(--secondary-color);
+        &:hover {
+          color: var(--secondary-color);
+        }
       }
     }
   }
