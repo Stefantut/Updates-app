@@ -71,6 +71,7 @@ const RegisterForm = () => {
         </div>
         <div className="wrap-buttons">
           <Button text={"Submit and Login"} type="submit" />
+          <Button path={"/"} text={"Return Home"} />
         </div>
       </form>
     </div>
