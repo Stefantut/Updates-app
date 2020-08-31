@@ -186,3 +186,17 @@ footer {
     }
   }
 }
+
+// add update form
+.add-update-section {
+  textarea {
+    border: 1px solid var(--secondary-color);
+    width: 100%;
+    min-height: 150px;
+    margin-top: var(--spacer-xsmall);
+    &.inputError {
+      border: 1px solid var(--primary-color);
+      padding: 3px;
+    }
+  }
+}

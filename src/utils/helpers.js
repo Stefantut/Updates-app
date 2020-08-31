@@ -28,3 +28,9 @@ export function currentDate() {
   const date = `${ye}-${mo}-${da}`;
   return date.toString();
 }
+
+// will convert the string to array of strings if the string includes comma
+export function stringToArray(item) {
+  const newArray = item.replace(/ /g, "").split(",");
+  return newArray;
+}
