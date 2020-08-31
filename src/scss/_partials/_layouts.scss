@@ -29,3 +29,12 @@
   height: 100%;
   width: 50%;
 }
+
+.full-width {
+  display: flex;
+  align-items: left;
+  justify-content: flex-start;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}

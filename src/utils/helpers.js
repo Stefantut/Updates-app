@@ -19,3 +19,12 @@ export function currentYear() {
   const year = date.getFullYear();
   return year;
 }
+
+export function currentDate() {
+  let d = new Date();
+  const ye = new Intl.DateTimeFormat("en", { year: "numeric" }).format(d);
+  const mo = new Intl.DateTimeFormat("en", { month: "2-digit" }).format(d);
+  const da = new Intl.DateTimeFormat("en", { day: "2-digit" }).format(d);
+  const date = `${ye}-${mo}-${da}`;
+  return date.toString();
+}

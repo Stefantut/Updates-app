@@ -11,7 +11,7 @@ const App = () => {
     <SectionWrap
       className="App"
       leftSection={<BigTitle />}
-      rightSection={isLogged ? <BigTitle /> : <NotLogged />}
+      rightSection={isLogged ? "welcome" : <NotLogged />}
     ></SectionWrap>
   );
 };
