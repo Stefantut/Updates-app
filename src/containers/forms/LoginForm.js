@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 
-import Button from "../../components/layouts/Button";
+import { Button } from "../../components/layouts";
 import { Context } from "../../utils/Context";
 import useForm from "../../components/useForm";
 import validate from "../../components/validation/validateLogin";

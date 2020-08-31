@@ -1,8 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ReactComponent as Forward } from "../../images/forward.svg";
+import { ReactComponent as Forward } from "../images/forward.svg";
 
-function Button({ image, text, path }) {
+export const SectionWrap = ({ leftSection, rightSection }) => {
+  return (
+    <main className="section-wrap">
+      {leftSection}
+      {rightSection}
+    </main>
+  );
+};
+
+export function Button({ text, path }) {
   return (
     <div className="button-wrap">
       {path ? (
@@ -21,5 +30,3 @@ function Button({ image, text, path }) {
     </div>
   );
 }
-
-export default Button;

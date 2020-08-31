@@ -1,12 +1,11 @@
 import React from "react";
 
-import Title from "../../components/layouts/Title";
 import RegisterForm from "../forms/RegisterForm";
 
 const RegisterSection = () => {
   return (
     <div className="register-section half-width">
-      <Title title={"Register"} />
+      <h2 className="title">Register</h2>
       <RegisterForm />
     </div>
   );

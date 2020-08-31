@@ -1,9 +1,7 @@
 import React, { useContext } from "react";
 import { Context } from "../utils/Context";
 
-import SectionWrap from "../components/layouts/SectionWrap";
-import Title from "../components/layouts/Title";
-import Button from "../components/layouts/Button";
+import { SectionWrap, Button } from "../components/layouts";
 import BigTitle from "../components/BigTitle";
 import NotLogged from "../components/NotLogged";
 
@@ -26,7 +24,7 @@ const AllDateUpdates = () => {
 
   return (
     <section className="all-updates-date full-width">
-      <Title title={"All updates by date"} />
+      <h2 className="title">All updates by date</h2>
       <div className="content">{updatesByDate}</div>
       <Button path={"/"} text={"Return Home"} />
     </section>

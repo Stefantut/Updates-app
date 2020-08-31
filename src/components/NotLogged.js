@@ -1,12 +1,11 @@
 import React from "react";
 
-import Title from "./layouts/Title";
-import Button from "./layouts/Button";
+import { Button } from "./layouts";
 
 const NotLogged = () => {
   return (
     <div className="not-logged half-width">
-      <Title title={"You are not logged in"} />
+      <h2 className="title">Please log in</h2>
       <Button path={"/login"} text={"Log in now"} />
     </div>
   );
