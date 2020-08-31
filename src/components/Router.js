@@ -22,8 +22,16 @@ const Router = () => {
           <Route exact path="/" component={Welcome} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
-          <Route exact path="/app/updatesbydate" component={UpdatesByDate} />
-          <Route exact path="/app/updatesbytags" component={UpdatesByTags} />
+          <Route
+            exact
+            path="/updates/updatesbydate"
+            component={UpdatesByDate}
+          />
+          <Route
+            exact
+            path="/updates/updatesbytags"
+            component={UpdatesByTags}
+          />
           <Route path="/app/:username" component={App} />
           <Route component={NotFound} />
         </Switch>

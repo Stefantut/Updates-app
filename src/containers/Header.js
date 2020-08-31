@@ -22,8 +22,8 @@ const Header = () => {
           </div>
           <div className="updates-wrap">
             View all updates:
-            <Link to="/app/updatesbytags">by tags</Link>
-            <Link to="app/updatesbydate">by date</Link>
+            <Link to="/updates/updatesbytags">by tags</Link>
+            <Link to="/updates/updatesbydate">by date</Link>
           </div>
         </div>
       )}
