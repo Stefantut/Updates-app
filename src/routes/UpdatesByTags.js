@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../utils/Context";
 
 import { SectionWrap, Button } from "../components/layouts";
@@ -11,6 +11,7 @@ const AllTagsUpdates = () => {
   const [tags, setTags] = useState(["Vue", "React", "Javascript"]);
   const [selectedTag, setSelectedTag] = useState("vue");
   const [newTag, setNewTag] = useState("");
+  const [error, setError] = useState("");
 
   // handle click on filter buttons
   const handleClick = (event) => {
@@ -47,16 +48,28 @@ const AllTagsUpdates = () => {
     );
   });
 
+  // handle form change
+  const handleChange = (event) => setNewTag(event.target.value);
+
   //handle form submit
   const handleSubmit = (event) => {
     event.preventDefault();
-    setTags([...tags, newTag]);
+    return newTag.length > 0
+      ? setTags([...tags, newTag]) && setError("")
+      : setError("At least 1 character");
   };
+
+  // updates error message
+  useEffect(() => {
+    if (newTag.length > 0) {
+      setError("");
+    }
+  }, [newTag.length]);
 
   return (
     <div className="all-updates-tags full-width">
       <h2 className="title">All updates by tags</h2>
-      <div className="tags-content">
+      <div className="content">
         <div className="filter-wrap">
           <h4>Filters:</h4>
           {filterButtons}
@@ -64,13 +77,10 @@ const AllTagsUpdates = () => {
         <form className="tags-form" onSubmit={handleSubmit}>
           <label>
             Add new tag:
-            <input
-              type="text"
-              name="tag"
-              onChange={(event) => setNewTag(event.target.value)}
-            />
+            <input type="text" name="tag" onChange={handleChange} />
           </label>
           <input type="submit" value="Submit" />
+          {error && <p className="error">{error}</p>}
         </form>
         <div className="filter-wrap">
           <h3>
