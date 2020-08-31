@@ -7,7 +7,7 @@ export const Context = createContext();
 
 // Provider will just provide information to different components
 export const Provider = (props) => {
-  const [isLogged, setIsLogged] = useState(false);
+  const [isLogged, setIsLogged] = useState(true);
   const [loggedUser, setLoggedUser] = useState("");
 
   // save in state all updates
