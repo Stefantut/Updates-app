@@ -118,9 +118,7 @@ footer {
 
 // new tag form
 .all-updates-tags {
-  .tags-content {
-    padding: var(--spacer-medium);
-  }
+  min-height: calc(100vh - var(--header-height) - var(--footer-height));
   .single-update {
     .top-wrap {
       display: flex;
