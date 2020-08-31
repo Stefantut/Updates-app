@@ -18,7 +18,6 @@ const RegisterForm = () => {
   function submit() {
     // log in after passsing validation
     logInAfterReg(values.name);
-    console.log(users);
     //save in database new user
     const newUsers = [...users, values];
     console.log(newUsers);
