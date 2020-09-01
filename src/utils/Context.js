@@ -39,6 +39,9 @@ export const Provider = (props) => {
     redirect(`/`);
   };
 
+  const addUpdatePath = (path) => {
+    return (path = `/app/${loggedUser}`);
+  };
   // props.children will render all child components, whatever is wrapped between
   return (
     <Context.Provider
@@ -50,6 +53,7 @@ export const Provider = (props) => {
         logInAfterReg,
         updatesList,
         setUpdatesList,
+        addUpdatePath,
       }}
     >
       {props.children}

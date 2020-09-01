@@ -7,7 +7,7 @@ import NotLogged from "../components/NotLogged";
 import { capitalize } from "../utils/helpers";
 
 const AllTagsUpdates = () => {
-  const { updatesList } = useContext(Context);
+  const { updatesList, addUpdatePath } = useContext(Context);
   const [tags, setTags] = useState(["Vue", "React", "Javascript"]);
   const [selectedTag, setSelectedTag] = useState("vue");
   const [newTag, setNewTag] = useState("");
@@ -88,8 +88,9 @@ const AllTagsUpdates = () => {
           </h3>
         </div>
         {filteredUpdates}
+        <Button path={addUpdatePath} text={"Add Update"} />
+        <Button path={"/"} text={"Return Home"} />
       </div>
-      <Button path={"/"} text={"Return Home"} />
     </div>
   );
 };

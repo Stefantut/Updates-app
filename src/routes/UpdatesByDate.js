@@ -6,7 +6,7 @@ import BigTitle from "../components/BigTitle";
 import NotLogged from "../components/NotLogged";
 
 const AllDateUpdates = () => {
-  const { updatesList } = useContext(Context);
+  const { updatesList, addUpdatePath } = useContext(Context);
   // order by year, month, day
   const orderedUpdates = updatesList.sort((a, b) =>
     a.timestamp > b.timestamp ? -1 : 1
@@ -25,8 +25,11 @@ const AllDateUpdates = () => {
   return (
     <section className="all-updates-date full-width">
       <h2 className="title">All updates by date</h2>
-      <div className="content">{updatesByDate}</div>
-      <Button path={"/"} text={"Return Home"} />
+      <div className="content">
+        {updatesByDate}
+        <Button path={addUpdatePath} text={"Add Update"} />
+        <Button path={"/"} text={"Return Home"} />
+      </div>
     </section>
   );
 };
