@@ -6,11 +6,18 @@ import BigTitle from "../components/BigTitle";
 // import WelcomeSection from "../containers/sections/WelcomeSections";
 
 const WelcomeSection = () => {
-  const { isLogged } = useContext(Context);
+  const { isLogged, addUpdatePath } = useContext(Context);
   return (
     <div className="welcome-section half-width">
       <h2 className="title">Welcome</h2>
-      {!isLogged && (
+
+      {isLogged ? (
+        <React.Fragment>
+        <Button path={addUpdatePath} text={"Add Update"} />
+        <Button path={'/updates/updatesbydate'} text={"View all updates ordered by date"} />
+        <Button path={'/updates/updatesbytags'} text={"View all updates filtered by tags"} />
+        </React.Fragment>
+      ) : (
         <div className="wrap-content">
           <Button path={"/login"} text={"Login"} />
           <Button path={"/register"} text={"Register"} />

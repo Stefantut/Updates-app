@@ -93,6 +93,7 @@ const AddUpdateForm = () => {
         </div>
         <div className="wrap">
           <Button text={"Submit"} type="submit" />
+          <Button path={"/"} text={"Return Home"} />
         </div>
       </form>
     </div>
