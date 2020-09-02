@@ -1,9 +1,8 @@
 import React, { useContext } from "react";
 import { Context } from "../utils/Context";
 
-import { SectionWrap, Button } from "../components/layouts";
+import { SectionWrap, Button } from "../utils/layouts";
 import BigTitle from "../components/BigTitle";
-// import WelcomeSection from "../containers/sections/WelcomeSections";
 
 const WelcomeSection = () => {
   const { isLogged, addUpdatePath } = useContext(Context);
@@ -13,9 +12,15 @@ const WelcomeSection = () => {
 
       {isLogged ? (
         <React.Fragment>
-        <Button path={addUpdatePath} text={"Add Update"} />
-        <Button path={'/updates/updatesbydate'} text={"View all updates ordered by date"} />
-        <Button path={'/updates/updatesbytags'} text={"View all updates filtered by tags"} />
+          <Button path={addUpdatePath} text={"Add Update"} />
+          <Button
+            path={"/updates/updatesbydate"}
+            text={"View all updates ordered by date"}
+          />
+          <Button
+            path={"/updates/updatesbytags"}
+            text={"View all updates filtered by tags"}
+          />
         </React.Fragment>
       ) : (
         <div className="wrap-content">

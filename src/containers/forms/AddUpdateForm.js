@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 
 import { useHistory } from "react-router-dom";
 
-import { Button } from "../../components/layouts";
+import { Button } from "../../utils/layouts";
 import { Context } from "../../utils/Context";
 import useForm from "../../components/useForm";
 import validate from "../validation/validateUpdates";

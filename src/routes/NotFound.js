@@ -1,6 +1,6 @@
 import React from "react";
 
-import { SectionWrap, Button } from "../components/layouts";
+import { SectionWrap, Button } from "../utils/layouts";
 import BigTitle from "../components/BigTitle";
 
 const NotFoundSection = () => {

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Button } from "./layouts";
+import { Button } from "../utils/layouts";
 
 const NotLogged = () => {
   return (

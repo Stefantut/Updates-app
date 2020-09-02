@@ -1,6 +1,6 @@
 import React from "react";
 
-import { SectionWrap } from "../components/layouts";
+import { SectionWrap } from "../utils/layouts";
 import BigTitle from "../components/BigTitle";
 // import LoginSection from "../containers/sections/LoginSection";
 import LoginForm from "../containers/forms/LoginForm";

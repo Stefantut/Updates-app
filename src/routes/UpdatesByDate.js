@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Context } from "../utils/Context";
 
-import { SectionWrap, Button } from "../components/layouts";
+import { SectionWrap, Button } from "../utils/layouts";
 import BigTitle from "../components/BigTitle";
 import NotLogged from "../components/NotLogged";
 

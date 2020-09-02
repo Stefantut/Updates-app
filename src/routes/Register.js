@@ -1,6 +1,6 @@
 import React from "react";
 
-import { SectionWrap } from "../components/layouts";
+import { SectionWrap } from "../utils/layouts";
 import BigTitle from "../components/BigTitle";
 import RegisterForm from "../containers/forms/RegisterForm";
 
