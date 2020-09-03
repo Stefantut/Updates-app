@@ -33,12 +33,6 @@ export const Provider = (props) => {
     redirect(`/`);
   };
 
-  const logInAfterReg = (user) => {
-    setIsLogged(true);
-    setLoggedUser(user);
-    redirect(`/`);
-  };
-
   const addUpdatePath = (path) => {
     return (path = `/app/${loggedUser}`);
   };
@@ -50,7 +44,6 @@ export const Provider = (props) => {
         loggedUser,
         logIn,
         logOut,
-        logInAfterReg,
         updatesList,
         setUpdatesList,
         addUpdatePath,

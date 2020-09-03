@@ -8,7 +8,7 @@ import validate from "../validation/validateRegister";
 import { users } from "../../database";
 
 const RegisterForm = () => {
-  const { logInAfterReg } = useContext(Context);
+  const { logIn } = useContext(Context);
   // reused custom hook useForm
   const { handleChange, handleSubmit, values, errors } = useForm(
     submit,
@@ -17,7 +17,7 @@ const RegisterForm = () => {
 
   function submit() {
     // log in after passsing validation
-    logInAfterReg(values.name);
+    logIn(values.name);
     //save in database new user
     const newUsers = [...users, values];
     console.log(newUsers);
