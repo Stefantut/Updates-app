@@ -30,7 +30,7 @@ export const Provider = (props) => {
   const logIn = (user) => {
     setIsLogged(true);
     setLoggedUser(user);
-    redirect(`/app/${user}`);
+    redirect(`/`);
   };
 
   const logInAfterReg = (user) => {
