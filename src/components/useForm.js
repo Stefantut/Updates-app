@@ -26,8 +26,7 @@ const useForm = (callback, validate) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const validationErrors = validate(values);
-
-    validationErrors.title || validationErrors.password
+    validationErrors.text || validationErrors.password
       ? setErrors(validationErrors)
       : callback();
   };

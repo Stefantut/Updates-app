@@ -12,7 +12,6 @@ import { stringToArray, currentDate } from "../../utils/helpers";
 
 const AddUpdateForm = () => {
   const { updatesList, setUpdatesList, loggedUser } = useContext(Context);
-  // import all users from fake database
   const { handleChange, handleSubmit, values, errors } = useForm(
     submit,
     validate
@@ -41,7 +40,6 @@ const AddUpdateForm = () => {
     //save in database new update
     const newUpdates = [...updates, newUpdate];
     console.log(newUpdates);
-    // setUpdatesList(newUpdates);
     redirect("/updates/updatesbydate");
   }
 
