@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // custom React hook
 const useForm = (callback, validate) => {
@@ -10,8 +10,8 @@ const useForm = (callback, validate) => {
     tags: "",
     text: "",
   });
-
   const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // handle change
   const handleChange = (event) => {
@@ -25,11 +25,15 @@ const useForm = (callback, validate) => {
   //handle submit
   const handleSubmit = (event) => {
     event.preventDefault();
-    const validationErrors = validate(values);
-    validationErrors.text || validationErrors.password
-      ? setErrors(validationErrors)
-      : callback();
+    setErrors(validate(values));
+    setIsSubmitting(true);
   };
+
+  useEffect(() => {
+    if (Object.keys(errors).length === 0 && isSubmitting) {
+      callback();
+    }
+  }, [errors, callback, isSubmitting]);
 
   return {
     handleChange,
