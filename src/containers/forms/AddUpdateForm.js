@@ -11,7 +11,9 @@ import { updates } from "../../database";
 import { stringToArray, currentDate } from "../../utils/helpers";
 
 const AddUpdateForm = () => {
-  const { updatesList, setUpdatesList, loggedUser } = useContext(Context);
+  const { updatesList, setUpdatesList, loggedUser, tags, setTags } = useContext(
+    Context
+  );
   const { handleChange, handleSubmit, values, errors } = useForm(
     submit,
     validate
@@ -25,7 +27,7 @@ const AddUpdateForm = () => {
     user: loggedUser,
     timestamp: currentDate(),
   };
-
+  console.log("newupdate=" + newUpdate.tags);
   // redirect home
   const history = useHistory();
   const redirect = (path) => {
@@ -36,7 +38,7 @@ const AddUpdateForm = () => {
   function submit() {
     // updates State with new user
     setUpdatesList([...updatesList, newUpdate]);
-
+    setTags([...tags, ...newUpdate.tags]);
     //save in database new update
     const newUpdates = [...updates, newUpdate];
     console.log(newUpdates);

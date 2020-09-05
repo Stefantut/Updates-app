@@ -7,8 +7,8 @@ import NotLogged from "../components/NotLogged";
 import { capitalize } from "../utils/helpers";
 
 const AllTagsUpdates = () => {
-  const { updatesList, addUpdatePath } = useContext(Context);
-  const [tags, setTags] = useState(["Vue", "React", "Javascript"]);
+  const { updatesList, addUpdatePath, tags, setTags } = useContext(Context);
+  // const [tags, setTags] = useState(["Vue", "React", "Javascript"]);
   const [selectedTag, setSelectedTag] = useState("vue");
   const [newTag, setNewTag] = useState("");
   const [error, setError] = useState("");
