@@ -6,6 +6,7 @@ import Welcome from "../routes/Welcome";
 import Login from "../routes/Login";
 import Register from "../routes/Register";
 import UpdatesByDate from "../routes/UpdatesByDate";
+import MyUpdates from "../routes/MyUpdates";
 import UpdatesByTags from "../routes/UpdatesByTags";
 import App from "../routes/App";
 import NotFound from "../routes/NotFound";
@@ -32,6 +33,7 @@ const Router = () => {
             path="/updates/updatesbytags"
             component={UpdatesByTags}
           />
+          <Route exact path="/updates/myupdates" component={MyUpdates} />
           <Route path="/app/:username" component={App} />
           <Route component={NotFound} />
         </Switch>
