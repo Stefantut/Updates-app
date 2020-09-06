@@ -27,7 +27,7 @@ const AddUpdateForm = () => {
     user: loggedUser,
     timestamp: currentDate(),
   };
-  console.log("newupdate=" + newUpdate.tags);
+
   // redirect home
   const history = useHistory();
   const redirect = (path) => {

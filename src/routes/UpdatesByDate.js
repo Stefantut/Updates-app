@@ -6,21 +6,34 @@ import BigTitle from "../components/BigTitle";
 import NotLogged from "../components/NotLogged";
 
 const AllDateUpdates = () => {
-  const { updatesList, addUpdatePath } = useContext(Context);
+  const { updatesList, setUpdatesList, addUpdatePath } = useContext(Context);
   // order by year, month, day
   const orderedUpdates = updatesList.sort((a, b) =>
     a.timestamp > b.timestamp ? -1 : 1
   );
 
   // display details for each update
-  const updatesByDate = orderedUpdates.map((item, index) => (
-    <div className="single-update" key={index}>
-      <h4>
-        {item.title} - {item.timestamp}
-      </h4>
-      <p>{item.text}</p>
-    </div>
-  ));
+  const updatesByDate = orderedUpdates.map((item, index) => {
+    //remove update
+    const handleClick = () => {
+      const newList = [
+        ...updatesList.slice(0, index),
+        ...updatesList.slice(index + 1),
+      ];
+      setUpdatesList(newList);
+    };
+    return (
+      <div className="single-update" key={index}>
+        <h4>
+          {item.title} - {item.timestamp}
+        </h4>
+        <p>{item.text}</p>
+        <span className="remove" onClick={handleClick}>
+          x
+        </span>
+      </div>
+    );
+  });
 
   return (
     <section className="all-updates-date full-width">
