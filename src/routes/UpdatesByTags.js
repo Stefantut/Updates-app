@@ -41,8 +41,8 @@ const AllTagsUpdates = () => {
   const filteredUpdates = newList.map((item, index) => {
     // remove update
     const handleClick = () => {
-      const newList = updatesList.filter((elem) => elem !== item);
-      setUpdatesList(newList);
+      const leftListElements = updatesList.filter((elem) => elem !== item);
+      setUpdatesList(leftListElements);
     };
     return (
       <div className="single-update" key={index}>

@@ -35,6 +35,7 @@ export function stringToArray(item) {
   return newArray;
 }
 
+// remove element from array
 export function arrayRemoveElement(array, value) {
   return array.filter(function (elem) {
     return elem !== value;
