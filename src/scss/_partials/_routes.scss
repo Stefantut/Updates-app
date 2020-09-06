@@ -1,10 +1,11 @@
-// Updates by date
-.all-updates-date {
+// Updates by date & tags
+.all-updates-date,
+.all-updates-tags {
   .content {
     .single-update {
       user-select: none;
       margin-bottom: var(--spacer-medium);
-      .top-line {
+      .top-wrap {
         display: flex;
         justify-content: space-between;
         .left {
@@ -17,11 +18,34 @@
         .remove {
           font-weight: bold;
           font-size: var(--font-large);
-          margin: 0 var(--spacer-medium);
+          padding: 0 var(--spacer-small);
           @include default-transition;
           &:hover {
             cursor: pointer;
             color: var(--primary-color);
+          }
+        }
+      }
+    }
+  }
+  &.all-updates-tags {
+    .content {
+      .single-update {
+        .top-wrap {
+          .left {
+            .tags {
+              display: flex;
+              .tag {
+                &:after {
+                  content: ",";
+                }
+                &:last-child {
+                  &:after {
+                    content: "";
+                  }
+                }
+              }
+            }
           }
         }
       }

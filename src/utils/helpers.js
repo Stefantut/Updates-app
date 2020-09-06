@@ -34,3 +34,9 @@ export function stringToArray(item) {
   const newArray = item.replace(/ /g, "").split(",");
   return newArray;
 }
+
+export function arrayRemoveElement(array, value) {
+  return array.filter(function (elem) {
+    return elem !== value;
+  });
+}

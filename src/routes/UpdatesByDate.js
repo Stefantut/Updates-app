@@ -24,7 +24,7 @@ const AllDateUpdates = () => {
     };
     return (
       <div className="single-update" key={index}>
-        <div className="top-line">
+        <div className="top-wrap">
           <div className="left">
             <h4>{item.title}</h4>
             <span className="dash">-</span>

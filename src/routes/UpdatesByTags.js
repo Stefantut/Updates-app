@@ -7,8 +7,14 @@ import NotLogged from "../components/NotLogged";
 import { capitalize } from "../utils/helpers";
 
 const AllTagsUpdates = () => {
-  const { updatesList, addUpdatePath, tags, setTags } = useContext(Context);
-  // const [tags, setTags] = useState(["Vue", "React", "Javascript"]);
+  const {
+    updatesList,
+    setUpdatesList,
+    addUpdatePath,
+    tags,
+    setTags,
+  } = useContext(Context);
+
   const [selectedTag, setSelectedTag] = useState("vue");
   const [newTag, setNewTag] = useState("");
   const [error, setError] = useState("");
@@ -33,15 +39,28 @@ const AllTagsUpdates = () => {
 
   // display filtered updates
   const filteredUpdates = newList.map((item, index) => {
+    // remove update
+    const handleClick = () => {
+      const newList = updatesList.filter((elem) => elem !== item);
+      setUpdatesList(newList);
+    };
     return (
       <div className="single-update" key={index}>
         <div className="top-wrap">
-          <h4>{item.title} - </h4>
-          {item.tags.map((tag, index) => (
-            <div key={index}>
-              <p>{capitalize(tag)}</p>
+          <div className="left">
+            <h4>{item.title}</h4>
+            <span className="dash">-</span>
+            <div className="tags">
+              {item.tags.map((tag, index) => (
+                <p className="tag" key={index}>
+                  {capitalize(tag)}{" "}
+                </p>
+              ))}
             </div>
-          ))}
+          </div>
+          <p className="remove" onClick={handleClick}>
+            x
+          </p>
         </div>
         <p>{item.text}</p>
       </div>
