@@ -1,0 +1,30 @@
+// Updates by date
+.all-updates-date {
+  .content {
+    .single-update {
+      user-select: none;
+      margin-bottom: var(--spacer-medium);
+      .top-line {
+        display: flex;
+        justify-content: space-between;
+        .left {
+          display: flex;
+          align-items: center;
+          .dash {
+            margin: 0 var(--spacer-small);
+          }
+        }
+        .remove {
+          font-weight: bold;
+          font-size: var(--font-large);
+          margin: 0 var(--spacer-medium);
+          @include default-transition;
+          &:hover {
+            cursor: pointer;
+            color: var(--primary-color);
+          }
+        }
+      }
+    }
+  }
+}

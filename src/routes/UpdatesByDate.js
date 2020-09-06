@@ -24,13 +24,17 @@ const AllDateUpdates = () => {
     };
     return (
       <div className="single-update" key={index}>
-        <h4>
-          {item.title} - {item.timestamp}
-        </h4>
+        <div className="top-line">
+          <div className="left">
+            <h4>{item.title}</h4>
+            <span className="dash">-</span>
+            <p className="date">{item.timestamp}</p>
+          </div>
+          <p className="remove" onClick={handleClick}>
+            x
+          </p>
+        </div>
         <p>{item.text}</p>
-        <span className="remove" onClick={handleClick}>
-          x
-        </span>
       </div>
     );
   });
