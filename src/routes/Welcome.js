@@ -13,6 +13,7 @@ const WelcomeSection = () => {
       {isLogged ? (
         <React.Fragment>
           <Button path={addUpdatePath} text={"Add Update"} />
+          <Button path={"/updates/myupdates"} text={"View just your updates"} />
           <Button
             path={"/updates/updatesbydate"}
             text={"View all updates ordered by date"}

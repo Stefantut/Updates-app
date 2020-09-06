@@ -24,6 +24,7 @@ const Header = () => {
             View all updates:
             <Link to="/updates/updatesbytags">by tags</Link>
             <Link to="/updates/updatesbydate">by date</Link>
+            <Link to="/updates/myupdates">your updates</Link>
           </div>
         </div>
       )}
