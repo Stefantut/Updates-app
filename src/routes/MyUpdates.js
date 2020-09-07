@@ -16,7 +16,7 @@ const AllMyUpdates = () => {
     .sort((a, b) => (a.timestamp > b.timestamp ? -1 : 1));
   // display details for each update
   const displayMyUpdates = myUpdates.map((item, index) => {
-    //remove update
+    // remove update
     const handleClick = () => {
       const leftListElements = updatesList.filter((elem) => elem !== item);
       setUpdatesList(leftListElements);
@@ -39,7 +39,12 @@ const AllMyUpdates = () => {
   });
 
   // no updates message
-  const noUpdatesMessage = `Sorry, you don't have any updates, but you can add one now. Just click add Update.`;
+  const noUpdatesMessage = (
+    <p className="no-updates-message">
+      Sorry, you don't have any updates, but you can add one now.{" "}
+      <span>Just click add Update.</span>
+    </p>
+  );
 
   return (
     <section className="all-my-updates full-width">

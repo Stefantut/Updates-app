@@ -109,4 +109,15 @@
       }
     }
   }
+  &.all-my-updates {
+    .no-updates-message {
+      font-weight: bold;
+      color: var(--primary-color);
+      user-select: none;
+      margin: var(--spacer-xxxlarge) 0;
+      span {
+        color: var(--secondary-color);
+      }
+    }
+  }
 }
