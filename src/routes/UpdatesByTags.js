@@ -27,7 +27,14 @@ const AllTagsUpdates = () => {
 
   // generate filter buttons
   const filterButtons = tags.map((tag, index) => (
-    <button className="filter-btn" id={tag} key={index} onClick={handleClick}>
+    <button
+      id={tag}
+      key={index}
+      onClick={handleClick}
+      className={`filter__btn filter__btn--${
+        tag.toLowerCase() === selectedTag ? "active" : "inactive"
+      }`}
+    >
       {tag}
     </button>
   ));
@@ -93,6 +100,11 @@ const AllTagsUpdates = () => {
           <h4>Filters:</h4>
           {filterButtons}
         </div>
+        <div className="filter-wrap">
+          <h3>
+            Selected tag: <span>{capitalize(selectedTag)}</span>
+          </h3>
+        </div>
         <form className="tags-form" onSubmit={handleSubmit}>
           <label>
             Add new tag:
@@ -101,11 +113,6 @@ const AllTagsUpdates = () => {
           <input type="submit" value="Submit" />
           {error && <p className="error">{error}</p>}
         </form>
-        <div className="filter-wrap">
-          <h3>
-            Selected tag: <span>{capitalize(selectedTag)}</span>
-          </h3>
-        </div>
         {filteredUpdates}
         <Button path={addUpdatePath} text={"Add Update"} />
         <Button path={"/"} text={"Return Home"} />
