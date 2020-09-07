@@ -1,6 +1,8 @@
 // Updates by date & tags
 .all-updates-date,
-.all-updates-tags {
+.all-updates-tags,
+.all-my-updates {
+  min-height: calc(100vh - var(--header-height) - var(--footer-height));
   .content {
     .single-update {
       user-select: none;
@@ -8,6 +10,7 @@
       .top-wrap {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         .left {
           display: flex;
           align-items: center;
@@ -46,6 +49,61 @@
                 }
               }
             }
+          }
+        }
+      }
+      .tags-form {
+        display: flex;
+        margin-bottom: var(--spacer-medium);
+        color: var(--primary-color);
+        font-weight: var(--bold-weight);
+        input[type="text"] {
+          margin-left: 10px;
+          border: 1px solid var(--secondary-color);
+          padding: var(--spacer-xsmall);
+        }
+        input[type="submit"] {
+          color: var(--primary-color);
+          padding: 0 var(--spacer-xsmall);
+          margin-right: var(--spacer-small);
+          font-weight: bold;
+          border: none;
+          border: 1px solid var(--secondary-color);
+          background: var(--light-color);
+          padding: var(--spacer-xsmall);
+          @include default-transition;
+          &:hover {
+            cursor: pointer;
+            background: var(--primary-color);
+            color: white;
+          }
+        }
+      }
+      .filter-wrap {
+        display: flex;
+        align-items: center;
+        user-select: none;
+        margin-bottom: var(--spacer-large);
+        h3 {
+          margin-right: var(--spacer-medium);
+          span {
+            color: var(--primary-color);
+          }
+        }
+        .filter-btn {
+          margin-left: var(--spacer-small);
+          color: var(--primary-color);
+          font-weight: var(--bold-wight);
+          padding: var(--spacer-xsmall);
+          border: none;
+          border: 1px solid var(--secondary-color);
+          background: var(--light-color);
+          padding: var(--spacer-xsmall);
+          @include default-transition;
+          &:hover {
+            cursor: pointer;
+            background: var(--primary-color);
+            color: white;
           }
         }
       }

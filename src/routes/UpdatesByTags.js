@@ -40,7 +40,7 @@ const AllTagsUpdates = () => {
   // display filtered updates
   const filteredUpdates = newList.map((item, index) => {
     // remove update
-    const handleClick = () => {
+    const handleRemoveClick = () => {
       const leftListElements = updatesList.filter((elem) => elem !== item);
       setUpdatesList(leftListElements);
     };
@@ -58,7 +58,7 @@ const AllTagsUpdates = () => {
               ))}
             </div>
           </div>
-          <p className="remove" onClick={handleClick}>
+          <p className="remove" onClick={handleRemoveClick}>
             x
           </p>
         </div>
