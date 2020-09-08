@@ -1,4 +1,10 @@
 Used: Create React App, React router, node-sass
+Set up Firebase, create a new app, create a new Cloud Firestore database.
+create a local env file(.env.local) with following credentials:
+FIREBASE_API_KEY = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+FIREBASE_AUTH_DOMAIN = xxxxxxxxxx.firebaseapp.com
+
+and update databaseURL and projectID from firebase.js which can be found in src folder.
 
 ## Available Scripts
 
