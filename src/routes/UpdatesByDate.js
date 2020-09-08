@@ -1,14 +1,18 @@
 import React, { useContext } from "react";
 import { Context } from "../utils/Context";
+import firebase from "firebase";
 
 import { SectionWrap, Button } from "../utils/layouts";
 import BigTitle from "../components/BigTitle";
 import NotLogged from "../components/NotLogged";
 
 const AllDateUpdates = () => {
-  const { updatesList, setUpdatesList, addUpdatePath } = useContext(Context);
+  const { useUpdates, addUpdatePath } = useContext(Context);
+
+  const updates = useUpdates();
+
   // order by year, month, day
-  const orderedUpdates = updatesList.sort((a, b) =>
+  const orderedUpdates = updates.sort((a, b) =>
     a.timestamp > b.timestamp ? -1 : 1
   );
 
@@ -16,11 +20,30 @@ const AllDateUpdates = () => {
   const updatesByDate = orderedUpdates.map((item, index) => {
     //remove update
     const handleClick = () => {
-      const newList = [
-        ...updatesList.slice(0, index),
-        ...updatesList.slice(index + 1),
-      ];
-      setUpdatesList(newList);
+      // const newList = [...updates.slice(0, index), ...updates.slice(index + 1)];
+      // setUpdatesList(newList);
+      let fs = firebase.firestore();
+      let collectionRef = fs.collection("updates");
+
+      collectionRef
+        .where("title", "==", item.title)
+        .where("text", "==", item.text)
+        .get()
+        .then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            doc.ref
+              .delete()
+              .then(() => {
+                console.log("Document successfully deleted!");
+              })
+              .catch(function (error) {
+                console.error("Error removing document: ", error);
+              });
+          });
+        })
+        .catch(function (error) {
+          console.log("Error getting documents: ", error);
+        });
     };
     return (
       <div className="single-update" key={index}>

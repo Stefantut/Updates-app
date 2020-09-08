@@ -1,19 +1,17 @@
 import React, { useContext } from "react";
 
 import { useHistory } from "react-router-dom";
+import firebase from "firebase";
 
 import { Button } from "../../utils/layouts";
 import { Context } from "../../utils/Context";
 import useForm from "../../components/useForm";
 import validate from "../validation/validateUpdates";
 
-import { updates } from "../../database";
 import { stringToArray, currentDate } from "../../utils/helpers";
 
 const AddUpdateForm = () => {
-  const { updatesList, setUpdatesList, loggedUser, tags, setTags } = useContext(
-    Context
-  );
+  const { loggedUser, tags, setTags } = useContext(Context);
   const { handleChange, handleSubmit, values, errors } = useForm(
     submit,
     validate
@@ -36,12 +34,10 @@ const AddUpdateForm = () => {
   };
 
   function submit() {
-    // updates State with new user
-    setUpdatesList([...updatesList, newUpdate]);
+    //adds new tags
     setTags([...tags, ...newUpdate.tags]);
     //save in database new update
-    const newUpdates = [...updates, newUpdate];
-    console.log(newUpdates);
+    firebase.firestore().collection("updates").add(newUpdate);
     redirect("/updates/updatesbydate");
   }
 

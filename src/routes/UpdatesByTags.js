@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../utils/Context";
+import firebase from "firebase";
 
 import { SectionWrap, Button } from "../utils/layouts";
 import BigTitle from "../components/BigTitle";
@@ -7,17 +8,13 @@ import NotLogged from "../components/NotLogged";
 import { capitalize } from "../utils/helpers";
 
 const AllTagsUpdates = () => {
-  const {
-    updatesList,
-    setUpdatesList,
-    addUpdatePath,
-    tags,
-    setTags,
-  } = useContext(Context);
+  const { useUpdates, addUpdatePath, tags, setTags } = useContext(Context);
 
   const [selectedTag, setSelectedTag] = useState("vue");
   const [newTag, setNewTag] = useState("");
   const [error, setError] = useState("");
+
+  const updates = useUpdates();
 
   // handle click on filter buttons
   const handleClick = (event) => {
@@ -40,7 +37,7 @@ const AllTagsUpdates = () => {
   ));
 
   // filter list and display only selected tag
-  const newList = updatesList.filter((item) =>
+  const newList = updates.filter((item) =>
     item.tags.some((item) => item === selectedTag)
   );
 
@@ -48,8 +45,28 @@ const AllTagsUpdates = () => {
   const filteredUpdates = newList.map((item, index) => {
     // remove update
     const handleRemoveClick = () => {
-      const leftListElements = updatesList.filter((elem) => elem !== item);
-      setUpdatesList(leftListElements);
+      let fs = firebase.firestore();
+      let collectionRef = fs.collection("updates");
+
+      collectionRef
+        .where("title", "==", item.title)
+        .where("text", "==", item.text)
+        .get()
+        .then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            doc.ref
+              .delete()
+              .then(() => {
+                console.log("Document successfully deleted!");
+              })
+              .catch(function (error) {
+                console.error("Error removing document: ", error);
+              });
+          });
+        })
+        .catch(function (error) {
+          console.log("Error getting documents: ", error);
+        });
     };
     return (
       <div className="single-update" key={index}>
