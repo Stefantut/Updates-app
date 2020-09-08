@@ -1,7 +1,7 @@
-import React, { useState, createContext } from "react";
+import React, { useState, useEffect, createContext } from "react";
 import { useHistory } from "react-router-dom";
 
-import { updates } from "../database";
+import firebase from "../firebase";
 
 export const Context = createContext();
 
@@ -11,8 +11,24 @@ export const Provider = (props) => {
   const [loggedUser, setLoggedUser] = useState("");
   const [tags, setTags] = useState(["Vue", "React", "Javascript"]);
 
-  // save in state all updates
-  const [updatesList, setUpdatesList] = useState([...updates]);
+  function useUpdates() {
+    const [updates, setUpdates] = useState([]);
+
+    useEffect(() => {
+      const unsubscribe = firebase
+        .firestore()
+        .collection("updates")
+        .onSnapshot((snapshot) => {
+          const newUpdates = snapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+          }));
+          setUpdates(newUpdates);
+        });
+      return () => unsubscribe();
+    }, []);
+    return updates;
+  }
 
   // redirect home
   const history = useHistory();
@@ -45,11 +61,10 @@ export const Provider = (props) => {
         loggedUser,
         logIn,
         logOut,
-        updatesList,
-        setUpdatesList,
         addUpdatePath,
         tags,
         setTags,
+        useUpdates,
       }}
     >
       {props.children}
