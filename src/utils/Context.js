@@ -9,8 +9,9 @@ export const Context = createContext();
 export const Provider = (props) => {
   const [isLogged, setIsLogged] = useState(false);
   const [loggedUser, setLoggedUser] = useState("");
-  const [tags, setTags] = useState(["Vue", "React", "Javascript"]);
+  // const [tags, setTags] = useState(["Vue", "React", "Javascript"]);
 
+  // retrieve all updates from firebase
   function useUpdates() {
     const [updates, setUpdates] = useState([]);
 
@@ -28,6 +29,26 @@ export const Provider = (props) => {
       return () => unsubscribe();
     }, []);
     return updates;
+  }
+
+  // retrieve all tags from database
+  function useTags() {
+    const [tags, setTags] = useState([{ name: "React" }]);
+
+    useEffect(() => {
+      const unsubscribe = firebase
+        .firestore()
+        .collection("tags")
+        .onSnapshot((snapshot) => {
+          const newTags = snapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+          }));
+          setTags(newTags);
+        });
+      return () => unsubscribe();
+    }, []);
+    return tags;
   }
 
   // redirect home
@@ -62,9 +83,8 @@ export const Provider = (props) => {
         logIn,
         logOut,
         addUpdatePath,
-        tags,
-        setTags,
         useUpdates,
+        useTags,
       }}
     >
       {props.children}
