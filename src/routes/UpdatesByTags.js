@@ -5,42 +5,71 @@ import firebase from "firebase";
 import { SectionWrap, Button } from "../utils/layouts";
 import BigTitle from "../components/BigTitle";
 import NotLogged from "../components/NotLogged";
-import { capitalize } from "../utils/helpers";
 
 const AllTagsUpdates = () => {
-  const { useUpdates, addUpdatePath, tags, setTags } = useContext(Context);
+  const { useUpdates, useTags, addUpdatePath } = useContext(Context);
 
-  const [selectedTag, setSelectedTag] = useState("vue");
-  const [newTag, setNewTag] = useState("");
+  const [selectedTag, setSelectedTag] = useState("Vue");
+  const [newTag, setNewTag] = useState({});
   const [error, setError] = useState("");
 
   const updates = useUpdates();
+  const tags = useTags();
 
   // handle click on filter buttons
   const handleClick = (event) => {
-    const selected = event.target.id.toLowerCase();
+    const selected = event.target.id;
     setSelectedTag(selected);
   };
 
   // generate filter buttons
-  const filterButtons = tags.map((tag, index) => (
-    <button
-      id={tag}
-      key={index}
-      onClick={handleClick}
-      className={`filter__btn filter__btn--${
-        tag.toLowerCase() === selectedTag ? "active" : "inactive"
-      }`}
-    >
-      {tag}
-    </button>
-  ));
+  const filterButtons = tags.map((tag, index) => {
+    const removeTag = (e) => {
+      // e.preventDefault();
+      let fs = firebase.firestore();
+      let collectionRef = fs.collection("tags");
+
+      collectionRef
+        .where("name", "==", tag.name)
+        .get()
+        .then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            doc.ref
+              .delete()
+              .then(() => {
+                console.log("Document successfully deleted!");
+              })
+              .catch(function (error) {
+                console.error("Error removing document: ", error);
+              });
+          });
+        })
+        .catch(function (error) {
+          console.log("Error getting documents: ", error);
+        });
+    };
+    return (
+      <button
+        id={tag.name}
+        key={index}
+        onClick={handleClick}
+        className={`filter__btn filter__btn--${
+          tag.name === selectedTag ? "active" : "inactive"
+        }`}
+      >
+        {tag.name}
+        <span className="remove-tag" onClick={removeTag}>
+          x
+        </span>
+      </button>
+    );
+  });
 
   // filter list and display only selected tag
   const newList = updates.filter((item) =>
     item.tags.some((item) => item === selectedTag)
   );
-
+  console.log(newList);
   // display filtered updates
   const filteredUpdates = newList.map((item, index) => {
     // remove update
@@ -77,7 +106,7 @@ const AllTagsUpdates = () => {
             <div className="tags">
               {item.tags.map((tag, index) => (
                 <p className="tag" key={index}>
-                  {capitalize(tag)}{" "}
+                  {tag}{" "}
                 </p>
               ))}
             </div>
@@ -92,13 +121,19 @@ const AllTagsUpdates = () => {
   });
 
   // handle form change
-  const handleChange = (event) => setNewTag(event.target.value);
+  const handleChange = (event) => setNewTag({ name: event.target.value });
 
   //handle form submit
   const handleSubmit = (event) => {
     event.preventDefault();
-    return newTag.length > 0
-      ? setTags([...tags, newTag]) && setError("")
+    return newTag.name.length > 0
+      ? firebase
+          .firestore()
+          .collection("tags")
+          .add(newTag)
+          .then(() => {
+            setNewTag({ name: "" });
+          }) && setError("")
       : setError("At least 1 character");
   };
 
@@ -119,7 +154,7 @@ const AllTagsUpdates = () => {
         </div>
         <div className="filter-wrap">
           <h3>
-            Selected tag: <span>{capitalize(selectedTag)}</span>
+            Selected tag: <span>{selectedTag}</span>
           </h3>
         </div>
         <form className="tags-form" onSubmit={handleSubmit}>
