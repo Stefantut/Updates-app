@@ -20,8 +20,6 @@ const AllDateUpdates = () => {
   const updatesByDate = orderedUpdates.map((item, index) => {
     //remove update
     const handleClick = () => {
-      // const newList = [...updates.slice(0, index), ...updates.slice(index + 1)];
-      // setUpdatesList(newList);
       let fs = firebase.firestore();
       let collectionRef = fs.collection("updates");
 

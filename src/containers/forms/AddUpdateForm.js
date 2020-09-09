@@ -11,13 +11,13 @@ import validate from "../validation/validateUpdates";
 import { stringToArray, currentDate } from "../../utils/helpers";
 
 const AddUpdateForm = () => {
-  const { loggedUser, tags, setTags } = useContext(Context);
+  const { loggedUser } = useContext(Context);
   const { handleChange, handleSubmit, values, errors } = useForm(
     submit,
     validate
   );
 
-  //generate new user object
+  // generate new update object
   const newUpdate = {
     title: values.title,
     text: values.text,
@@ -35,7 +35,12 @@ const AddUpdateForm = () => {
 
   function submit() {
     //adds new tags
-    setTags([...tags, ...newUpdate.tags]);
+    const tagsArray = newUpdate.tags;
+
+    tagsArray.map((item) =>
+      firebase.firestore().collection("tags").add({ name: item })
+    );
+
     //save in database new update
     firebase.firestore().collection("updates").add(newUpdate);
     redirect("/updates/updatesbydate");
