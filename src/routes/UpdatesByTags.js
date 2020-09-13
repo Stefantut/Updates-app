@@ -10,7 +10,7 @@ const AllTagsUpdates = () => {
   const { useUpdates, useTags, addUpdatePath } = useContext(Context);
 
   const [selectedTag, setSelectedTag] = useState("Vue");
-  const [newTag, setNewTag] = useState({});
+  const [newTag, setNewTag] = useState("");
   const [error, setError] = useState("");
 
   const updates = useUpdates();
@@ -24,8 +24,7 @@ const AllTagsUpdates = () => {
 
   // generate filter buttons
   const filterButtons = tags.map((tag, index) => {
-    const removeTag = (e) => {
-      // e.preventDefault();
+    const removeTag = () => {
       let fs = firebase.firestore();
       let collectionRef = fs.collection("tags");
 
@@ -65,11 +64,11 @@ const AllTagsUpdates = () => {
     );
   });
 
-  // filter list and display only selected tag
+  // filter list and display updates with only selected tag
   const newList = updates.filter((item) =>
     item.tags.some((item) => item === selectedTag)
   );
-  console.log(newList);
+
   // display filtered updates
   const filteredUpdates = newList.map((item, index) => {
     // remove update
@@ -121,20 +120,23 @@ const AllTagsUpdates = () => {
   });
 
   // handle form change
-  const handleChange = (event) => setNewTag({ name: event.target.value });
+  const handleChange = (event) => setNewTag(event.target.value);
 
   //handle form submit
   const handleSubmit = (event) => {
     event.preventDefault();
-    return newTag.name.length > 0
-      ? firebase
-          .firestore()
-          .collection("tags")
-          .add(newTag)
-          .then(() => {
-            setNewTag({ name: "" });
-          }) && setError("")
-      : setError("At least 1 character");
+    if (newTag.length > 0) {
+      const tagExists = tags.find((tag) => tag.name === newTag);
+      tagExists
+        ? setError("Sorry, this tag exists!")
+        : firebase
+            .firestore()
+            .collection("tags")
+            .add({ name: newTag })
+            .then(() => {
+              setNewTag("");
+            }) && setError("");
+    } else setError("At least 1 character");
   };
 
   // updates error message
@@ -160,7 +162,13 @@ const AllTagsUpdates = () => {
         <form className="tags-form" onSubmit={handleSubmit}>
           <label>
             Add new tag:
-            <input type="text" name="tag" onChange={handleChange} />
+            <input
+              type="text"
+              className="tag-input"
+              name="tag"
+              value={newTag}
+              onChange={handleChange}
+            />
           </label>
           <input type="submit" value="Submit" />
           {error && <p className="error">{error}</p>}

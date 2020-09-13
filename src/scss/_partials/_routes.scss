@@ -87,6 +87,7 @@
         h3 {
           margin-right: var(--spacer-medium);
           span {
+            text-transform: capitalize;
             color: var(--primary-color);
           }
         }
@@ -102,6 +103,7 @@
           border: 1px solid var(--secondary-color);
           background: var(--light-color);
           @include default-transition;
+          text-transform: capitalize;
           &:hover {
             cursor: pointer;
             background: var(--primary-color);
