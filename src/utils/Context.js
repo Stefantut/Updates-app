@@ -9,7 +9,6 @@ export const Context = createContext();
 export const Provider = (props) => {
   const [isLogged, setIsLogged] = useState(false);
   const [loggedUser, setLoggedUser] = useState("");
-  // const [tags, setTags] = useState(["Vue", "React", "Javascript"]);
 
   // retrieve all updates from firebase
   function useUpdates() {
@@ -33,7 +32,7 @@ export const Provider = (props) => {
 
   // retrieve all tags from database
   function useTags() {
-    const [tags, setTags] = useState([{ name: "React" }]);
+    const [tags, setTags] = useState([{ name: "" }]);
 
     useEffect(() => {
       const unsubscribe = firebase

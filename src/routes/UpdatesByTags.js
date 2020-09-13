@@ -8,8 +8,7 @@ import NotLogged from "../components/NotLogged";
 
 const AllTagsUpdates = () => {
   const { useUpdates, useTags, addUpdatePath } = useContext(Context);
-
-  const [selectedTag, setSelectedTag] = useState("Vue");
+  const [selectedTag, setSelectedTag] = useState("None");
   const [newTag, setNewTag] = useState("");
   const [error, setError] = useState("");
 
@@ -19,7 +18,7 @@ const AllTagsUpdates = () => {
   // handle click on filter buttons
   const handleClick = (event) => {
     const selected = event.target.id;
-    setSelectedTag(selected);
+    setSelectedTag(selected.toLowerCase());
   };
 
   // generate filter buttons
@@ -66,7 +65,7 @@ const AllTagsUpdates = () => {
 
   // filter list and display updates with only selected tag
   const newList = updates.filter((item) =>
-    item.tags.some((item) => item === selectedTag)
+    item.tags.some((item) => item.toLowerCase() === selectedTag)
   );
 
   // display filtered updates
@@ -114,7 +113,7 @@ const AllTagsUpdates = () => {
             x
           </p>
         </div>
-        <p>{item.text}</p>
+        <p className="text">{item.text}</p>
       </div>
     );
   });
@@ -126,13 +125,15 @@ const AllTagsUpdates = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (newTag.length > 0) {
-      const tagExists = tags.find((tag) => tag.name === newTag);
+      const tagExists = tags.find(
+        (tag) => tag.name.toLowerCase() === newTag.toLowerCase()
+      );
       tagExists
         ? setError("Sorry, this tag exists!")
         : firebase
             .firestore()
             .collection("tags")
-            .add({ name: newTag })
+            .add({ name: newTag.toLowerCase() })
             .then(() => {
               setNewTag("");
             }) && setError("");

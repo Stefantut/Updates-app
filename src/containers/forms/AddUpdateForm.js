@@ -19,9 +19,9 @@ const AddUpdateForm = () => {
 
   // generate new update object
   const newUpdate = {
-    title: values.title,
-    text: values.text,
-    tags: stringToArray(values.tags),
+    title: values.title.toLowerCase(),
+    text: values.text.toLowerCase(),
+    tags: stringToArray(values.tags.toLowerCase()),
     user: loggedUser,
     timestamp: currentDate(),
   };

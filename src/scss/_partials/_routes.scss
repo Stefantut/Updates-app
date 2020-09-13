@@ -14,8 +14,16 @@
         .left {
           display: flex;
           align-items: center;
+          h4 {
+            text-transform: capitalize;
+          }
           .dash {
             margin: 0 var(--spacer-small);
+          }
+          .tags {
+            .tag {
+              text-transform: capitalize;
+            }
           }
         }
         .remove {
@@ -29,6 +37,9 @@
           }
         }
       }
+      .text {
+        text-transform: capitalize;
+      }
     }
   }
   &.all-updates-tags {
@@ -41,6 +52,8 @@
               .tag {
                 &:after {
                   content: ",";
+                  margin-left: -3px;
+                  margin-right: 5px;
                 }
                 &:last-child {
                   &:after {

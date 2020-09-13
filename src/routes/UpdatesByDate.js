@@ -55,7 +55,7 @@ const AllDateUpdates = () => {
             x
           </p>
         </div>
-        <p>{item.text}</p>
+        <p className="text">{item.text}</p>
       </div>
     );
   });
