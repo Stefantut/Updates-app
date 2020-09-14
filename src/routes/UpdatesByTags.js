@@ -147,6 +147,13 @@ const AllTagsUpdates = () => {
     }
   }, [newTag.length]);
 
+  // no updates message
+  const noUpdatesMessage = (
+    <p className="no-updates-message">
+      Sorry, you don't have any updates, but you can add one right now.{" "}
+      <span>Just click add Update.</span>
+    </p>
+  );
   return (
     <div className="all-updates-tags full-width">
       <h2 className="title">All updates by tags</h2>
@@ -174,7 +181,7 @@ const AllTagsUpdates = () => {
           <input type="submit" value="Submit" />
           {error && <p className="error">{error}</p>}
         </form>
-        {filteredUpdates}
+        {filteredUpdates.length > 0 ? filteredUpdates : noUpdatesMessage}
         <Button path={addUpdatePath} text={"Add Update"} />
         <Button path={"/"} text={"Return Home"} />
       </div>

@@ -60,11 +60,19 @@ const AllDateUpdates = () => {
     );
   });
 
+  // no updates message
+  const noUpdatesMessage = (
+    <p className="no-updates-message">
+      Sorry, you don't have any updates, but you can add one right now.{" "}
+      <span>Just click add Update.</span>
+    </p>
+  );
+
   return (
     <section className="all-updates-date full-width">
       <h2 className="title">All updates by date</h2>
       <div className="content">
-        {updatesByDate}
+        {updatesByDate.length > 0 ? updatesByDate : noUpdatesMessage}
         <Button path={addUpdatePath} text={"Add Update"} />
         <Button path={"/"} text={"Return Home"} />
       </div>
