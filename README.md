@@ -1,13 +1,16 @@
 # Updates App - 2020
 
-**A simple App where employees can login and add/remove company updates.**
+**A responsive App where employees can login and add/remove company updates.**
 
 ![Preview Image](src/images/updates-preview.png)
 
-## Description
+## Description:
 
 Updates App built with React ^16.13.1 which includes user authentication and allows user to see all company updates with different filters.
 All updates and tags are stored in Firebase.
+For user auth is using a fake database which can be found in /src/database.js .
+Username for test: test@email.com pass: test1
+Username for test 2: test2@email.com pass: test2
 
 **I used:**
 
@@ -17,7 +20,7 @@ All updates and tags are stored in Firebase.
 - Node Sass
 - Firebase
 
-### Setup Firebase
+### Setup Firebase:
 
 1. Create a new app.
 2. Create a new Cloud Firestore database.
@@ -44,7 +47,7 @@ All updates and tags are stored in Firebase.
 
 **_Enjoy, Stefan 🚀🚀🚀_**
 
-##### Other Images
+##### Other Images:
 
 ![Preview Image](src/images/updates-preview-2.png)
 ![Preview Image](src/images/updates-preview-3.png)
