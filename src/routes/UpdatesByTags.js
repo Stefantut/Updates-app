@@ -150,8 +150,8 @@ const AllTagsUpdates = () => {
   // no updates message
   const noUpdatesMessage = (
     <p className="no-updates-message">
-      Sorry, you don't have any updates, but you can add one right now.{" "}
-      <span>Just click add Update.</span>
+      Sorry, you don't have any updates, but you can add one right now or{" "}
+      <span>select a different tag</span> .
     </p>
   );
   return (

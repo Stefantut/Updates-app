@@ -97,6 +97,7 @@
         align-items: center;
         user-select: none;
         margin-bottom: var(--spacer-large);
+        flex-wrap: wrap;
         h3 {
           margin-right: var(--spacer-medium);
           span {
@@ -117,6 +118,7 @@
           background: var(--light-color);
           @include default-transition;
           text-transform: capitalize;
+          margin-bottom: var(--spacer-medium);
           &:hover {
             cursor: pointer;
             background: var(--primary-color);
